@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID = 'cart'
+
 
 # Application definition
 
@@ -40,6 +47,8 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'core',
     'product',
+    'cart',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
