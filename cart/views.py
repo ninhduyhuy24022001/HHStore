@@ -6,6 +6,7 @@ from product.models import Product
 
 def cart(request):
     cart = Cart(request)
+
     return render(request, 'cart/cart.html')
 
 def add_to_cart(request, product_id):
@@ -53,6 +54,9 @@ def hx_menu_cart(request):
 
 def hx_cart_total(request):
     return render(request, 'cart/partials/cart_total.html')
+
+def hx_checkout_button(request):
+    return render(request, 'cart/partials/hx_checkout_button.html')
 
 @login_required 
 def checkout(request):

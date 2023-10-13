@@ -1,6 +1,6 @@
 {% extends "core/base.html" %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 
 {% block content %}
@@ -19,15 +19,15 @@
                 <p class="mt-2">Price: ${{ product.price }}</h2> 
                 
                 {% if product.description %}
-                    <p class="mt-6 text-gray-700">{{ product.description }}</p>
+                    <p class="mt-6 text-gray-700 bg-gray-200 p-2 rounded-xl">{{ product.description }}</p>
                 {% endif %}
     
                 <a
                     href="#"
                     class="mt-6 inline-block px-8 py-4 rounded-xl bg-purple-500 text-white hover:bg-purple-800"
-                    {% comment %} hx-get="{% url 'cart:add_to_cart' product.id %}"
+                    hx-get="{% url 'cart:add_to_cart' product.id %}"
                     hx-target="#menu-cart-button" 
-                    hx-swap="outerHTML" {% endcomment %}
+                    hx-swap="outerHTML"
                 >
                 Add to cart
                 </a>

@@ -10,7 +10,7 @@
             <p>Last name: {{ request.user.last_name }}</p>
             <p>Email: {{ request.user.email }}</p>
 
-            <a href="#" class="inline-block mt-4 p-2 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Edit Account</a>
+            <a href="{% url 'core:edit_account' %}" class="inline-block mt-4 p-2 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Edit Account</a>
             <a href="{% url 'core:logout' %}" class="inline-block mt-4 p-2 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Log out</a>
         </div>  
         

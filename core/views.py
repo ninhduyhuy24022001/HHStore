@@ -63,3 +63,19 @@ def signup(request):
 def myaccount(request):
     
     return render(request, 'core/myaccount.html')
+
+@login_required
+def edit_account(request):
+    if request.method == "POST":
+        user = request.user
+
+        user.username = request.POST.get('username')
+        user.fist_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.email = request.POST.get('email')
+        user.save()
+
+        return redirect('core:myaccount')
+
+    return render(request, 'core/edit_account.html')
+    

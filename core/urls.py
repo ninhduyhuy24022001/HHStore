@@ -15,5 +15,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name="core/login.html", authentication_form=LoginForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('myaccount/', views.myaccount, name='myaccount'),
+    path('edit-account/', views.edit_account, name='edit_account'),
     
 ]

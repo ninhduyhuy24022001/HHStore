@@ -1,6 +1,6 @@
 {% extends "core/base.html" %}
 
-{% block title %}Shop{% endblock %}
+{% block title %}Cart{% endblock %}
 
 {% block content %}
     <h1 class="max-w-6xl mx-auto text-3xl text-center mt-4 font-semibold">Your Cart</h1>
@@ -30,9 +30,13 @@
                 </span>
             </div>
             
-            {% if cart %}
-                <a href="{% url 'cart:checkout' %}" class="inline-block px-8 py-4 rounded-xl bg-purple-500 hover:bg-purple-700 text-white">Checkout</a>
-            {% endif %}
+            <div
+                hx-get="{% url 'cart:hx_checkout_button' %}"
+                hx-trigger="update-menu-cart from:body"
+                hx-swap="innerHTML"    
+            >
+            {% include "cart/partials/hx_checkout_button.html" %}
+            </div>
         </div>
     </main>
 {% endblock %}
