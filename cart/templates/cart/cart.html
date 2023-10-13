@@ -6,9 +6,13 @@
     <h1 class="max-w-6xl mx-auto text-3xl text-center mt-4 font-semibold">Your Cart</h1>
     <main class="max-w-6xl mx-auto flex  items-start space-x-6">
         <div class="w-full lg:w-3/4 bg-gray-200 mt-3 rounded-xl">
-            {% for item in cart %}
-                {% include "cart/partials/cart_item.html" %}
-            {% endfor %}
+            {% if cart %}
+                {% for item in cart %}
+                    {% include "cart/partials/cart_item.html" %}
+                {% endfor %}
+            {% else %}
+                <h2 class= "text-xl text-center p-2">Your Cart Is Emtype</h2>
+            {% endif %}
         </div>
 
         
