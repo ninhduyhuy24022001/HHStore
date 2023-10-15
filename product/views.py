@@ -29,3 +29,10 @@ def detail(request, slug):
             return redirect('product:detail', slug=slug)
 
     return render(request, 'product/detail.html', {'product': product})
+
+def hx_product_list(request):
+    products = Product.objects.all()
+
+    return render(request, 'product/partials/list_product.html', {
+        'products': products,
+    })

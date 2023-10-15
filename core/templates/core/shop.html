@@ -21,7 +21,14 @@
 
             <h2 class="mt-6 text-xl">CATEGORIES</h2>
             <ul class="mt-3 space-y-2">
-                <li><a href="{% url 'core:shop' %}" class="{% if not active_category %}text-fuchsia-500{% else %}text-gray-500{% endif %}">All Categories</a></li>
+                <li><a 
+                        href="{% url 'core:shop' %}"
+                        class="{% if not active_category %}text-fuchsia-500{% else %}text-gray-500{% endif %}"
+                    >
+                        All Categories
+                    </a>
+                </li>
+
                 {% for category in categories %}
                     <li><a href="{% url 'core:shop' %}?category={{ category.slug }}" class="{% if category.slug == active_category %}text-fuchsia-500{% else %}text-gray-500{% endif %}">{{ category.name }}</a></li>
                 {% endfor %}
@@ -29,7 +36,7 @@
         </aside>
 
         <div class="w-full lg:w-3/4 border-2 border-cyan-500 rounded-xl p-2">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-3 gap-4" id="shop_list_product">
                 {% for product in products %}
                     {% include "product/partials/list_product.html" %}
                 {% endfor %}
